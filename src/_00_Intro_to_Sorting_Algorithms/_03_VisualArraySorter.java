@@ -25,8 +25,8 @@ import processing.core.PApplet;
  * 7. Set the color for your graph using the fill() method
  * 
  * 8. Draw a rectangle for each int in your array.
- *    the x value will be the loop variable multiplied by (width/intArray.length)
- *    the y value will the height variable
+ *    the x value will be the loop variable multiplied by (WIDTH/arr.length)
+ *    the y value will the height variable 
  *    the width is (width/intArray.length)
  *    the height is the negative array value at the array index, e.g. -intArray[i]
  * 
@@ -38,27 +38,49 @@ import processing.core.PApplet;
  *     mousePressed variable
  */
 public class _03_VisualArraySorter extends PApplet {
-    static final int WIDTH = 600;
-    static final int HEIGHT = 400;
+    static final int WIDTH = 500;
+    static final int HEIGHT = 500;
+    
+    int[] arr;
 
     @Override
     public void settings() {
-        
+        size(WIDTH,HEIGHT);
     }
 
     @Override
     public void setup() {
-        
+        arr = new int[50];
+        for(int i = 0; i < arr.length; i++) {
+        	arr[i] = (int)random(HEIGHT);
+        	noStroke();
+        	rect(i*(WIDTH/arr.length),HEIGHT,(WIDTH/arr.length),-arr[i]);
+        	stepSort(arr);
+        }
+    }
+    public void randomize() {
+    	for(int i = 0; i < arr.length; i++) {
+        	arr[i] = (int)random(HEIGHT);
+        	noStroke();
+        	rect(i*(WIDTH/arr.length),HEIGHT,(WIDTH/arr.length),-arr[i]);
+        	stepSort(arr);
+        }
     }
 
     @Override
     public void draw() {
-        
+    	background(40, 50, 200);
+    	fill((int)random(height),(int)random(height),(int)random(height));
+    	if(mousePressed) {
+    		randomize();
+    	}
     }
 
     static public void main(String[] passedArgs) {
         PApplet.main(_03_VisualArraySorter.class.getName());
     }
+    
+    
     
     /*********************** DO NOT MODIFY THE CODE BELOW ********************/
     
