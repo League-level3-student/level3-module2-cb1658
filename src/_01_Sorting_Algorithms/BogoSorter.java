@@ -37,6 +37,7 @@ public class BogoSorter extends Sorter {
     	    	array[c]=array[r];
     	    	array[r] = MEMORIES;
     		}
+    		display.updateDisplay();
         }
     }
 }
