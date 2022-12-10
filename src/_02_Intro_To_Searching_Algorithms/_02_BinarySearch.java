@@ -35,17 +35,18 @@ public class _02_BinarySearch {
 
         // 7. return -1 because the value was not found
     	
-    	if(end > start) {
-    		int mid = (end+start)/2;
+    	if(end >= start) {
+    		int mid = end==start ? end : (end-start)/2;
+    		//int mid = (end-start)/2;
     		if(array[mid] == value) {
     			return mid;
     		}
     		if(array[mid]>value) {
     			return binarySearch(array,start,mid-1,value);
     		}
-    		if(array[mid]<value) {
-    			return binarySearch(array,mid+1,end,value);
-    		}
+    		
+    		return binarySearch(array,mid+1,end,value);
+    		
     	}
         return -1;
     } 
