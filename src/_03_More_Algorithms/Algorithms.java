@@ -50,12 +50,38 @@ public class Algorithms {
     	Boolean hasSOS = false;
     	for(int i = 0; i < message.size() - 10; i++) {
     		if(message.get(i).equals(".") && message.get(i+1).equals(".") && message.get(i+2).equals(".") 
-    				&& message.get(i+4).equals("-") && message.get(i+5).equals("-") && message.get(i+6).equals("-")
-    				&& message.get(i+8).equals(".") && message.get(i+9).equals(".") && message.get(i+10).equals(".")) {
+    				&& message.get(i+3).equals("-") && message.get(i+4).equals("-") && message.get(i+5).equals("-")
+    				&& message.get(i+6).equals(".") && message.get(i+7).equals(".") && message.get(i+8).equals(".")) {
     			
     			hasSOS = true;
     		}
     	}
     	return hasSOS;
+    }
+    public static List<Double> sortScores(List<Double> results){
+    	Boolean bool = false;
+    	double[] array = new double[results.size()];
+    	for(int i = 0; i < array.length; i++) {
+    		array[i] = results.get(i);
+    	}
+    	while(bool == false) {
+    		bool = true;
+    			for(int i = 0; i < array.length-1; i++) {	
+    				if(array[i] > array[i+1]) {
+    					bool = false;
+    				}
+    			}
+    		if(!bool) {
+    			for(int i = 0; i < array.length-1; i++) {
+    				if(array[i]>array[i+1]) {
+    					double MEMORIES;
+    	    	    	MEMORIES = array[i+1];
+    	    	    	array[i+1]=array[i];
+    	    	    	array[i] = MEMORIES;
+    				}
+    			}
+    		}
+    	}
+    	List<Double> newresults = new List<Double>();
     }
 }
