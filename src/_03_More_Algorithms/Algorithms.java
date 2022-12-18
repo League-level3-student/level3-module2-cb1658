@@ -1,10 +1,9 @@
 package _03_More_Algorithms;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Write your methods in this class
- */
+
 public class Algorithms {
     
     public static String multiply(int num1, int num2) {
@@ -59,11 +58,15 @@ public class Algorithms {
     	return hasSOS;
     }
     public static List<Double> sortScores(List<Double> results){
+    	
+    	
     	Boolean bool = false;
-    	double[] array = new double[results.size()];
-    	for(int i = 0; i < array.length; i++) {
+    	double[] array = null;
+    	for(int i = 0; i < results.size(); i++) {
     		array[i] = results.get(i);
     	}
+    	
+    	
     	while(bool == false) {
     		bool = true;
     			for(int i = 0; i < array.length-1; i++) {	
@@ -82,6 +85,89 @@ public class Algorithms {
     			}
     		}
     	}
-    	List<Double> newresults = new List<Double>();
+    	
+    	List<Double> newresults = new ArrayList<Double>();
+    	for(int i = 0; i < array.length; i++) {
+    		newresults.set(i, array[i]);
+    	}
+    	return newresults;
+    	
     }
+    /////////////////////////////////////////////////////////////////////////////
+    
+    
+    public static List<String> sortDNA(List<String> unsorted){
+    	Boolean bool = false;
+    	String[] array = null;
+    	for(int i = 0; i < unsorted.size(); i++) {
+    		array[i] = unsorted.get(i);
+    	}
+    	
+    	
+    	while(bool == false) {
+    		bool = true;
+    			for(int i = 0; i < array.length-1; i++) {	
+    				if(array[i].length() > array[i+1].length()) {
+    					bool = false;
+    				}
+    			}
+    		if(!bool) {
+    			for(int i = 0; i < array.length-1; i++) {
+    				if(array[i].length()>array[i+1].length()) {
+    					String MEMORIES;
+    	    	    	MEMORIES = array[i+1];
+    	    	    	array[i+1]=array[i];
+    	    	    	array[i] = MEMORIES;
+    				}
+    			}
+    		}
+    	}
+    	
+    	List<String> sorted = new ArrayList<String>();
+    	for(int i = 0; i < array.length; i++) {
+    		sorted.set(i, array[i]);
+    	}
+    	return sorted;
+    	
+    }
+    
+        
+       
+    /////////////////////////////////////////////////////////////////////////////
+    
+    public static List<String> sortWords(List<String> words){
+    	Boolean bool = false;
+    	String[] array = null;
+    	for(int i = 0; i < words.size(); i++) {
+    		array[i] = words.get(i);
+    	}
+    	
+    	
+    	while(bool == false) {
+    		bool = true;
+    			for(int i = 0; i < array.length-1; i++) {	
+    				if(array[i].compareTo(array[i+1])>0) {
+    					bool = false;
+    				}
+    			}
+    		if(!bool) {
+    			for(int i = 0; i < array.length-1; i++) {
+    				if(array[i].compareTo(array[i+1])>0) {
+    					String MEMORIES;
+    	    	    	MEMORIES = array[i+1];
+    	    	    	array[i+1]=array[i];
+    	    	    	array[i] = MEMORIES;
+    				}
+    			}
+    		}
+    	}
+    	
+    	List<String> sorted = new ArrayList<String>();
+    	for(int i = 0; i < array.length; i++) {
+    		sorted.set(i, array[i]);
+    	}
+    	return sorted;
+    }
+    
+    
 }
