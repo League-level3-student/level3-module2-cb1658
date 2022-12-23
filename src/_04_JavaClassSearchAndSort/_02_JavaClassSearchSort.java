@@ -21,12 +21,20 @@ public class _02_JavaClassSearchSort {
     }
 
     public static Boolean arraySearch(char[] arr, char key) {
-        
-        return null;
+        Boolean boom = false;
+        for(int cacha = 0; cacha < arr.length; cacha++) {
+        	if(key == arr[cacha]) {
+        		boom = true;
+        	}
+        }
+        return boom;
     }
     
     public static Boolean listSearch(List<Character> list, Character key) {
-        
-        return null;
+        Collections.sort(list);
+        if(Collections.binarySearch(list,key)>-1) {
+        	return true;
+        }
+        return false;
     }
 }

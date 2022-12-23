@@ -29,7 +29,7 @@ public class Algorithms {
     }
     public static double findTallest(List<Double> peeps) {
     	double tallest = 0;
-    	for(int i = 0; i < peeps.size()-1; i++) {
+    	for(int i = 0; i < peeps.size(); i++) {
     		if(peeps.get(i)>tallest) {
     			tallest = peeps.get(i);
     		}
@@ -47,11 +47,8 @@ public class Algorithms {
     }
     public static Boolean containsSOS(List<String> message) {
     	Boolean hasSOS = false;
-    	for(int i = 0; i < message.size() - 10; i++) {
-    		if(message.get(i).equals(".") && message.get(i+1).equals(".") && message.get(i+2).equals(".") 
-    				&& message.get(i+3).equals("-") && message.get(i+4).equals("-") && message.get(i+5).equals("-")
-    				&& message.get(i+6).equals(".") && message.get(i+7).equals(".") && message.get(i+8).equals(".")) {
-    			
+    	for(int i = 0; i < message.size(); i++) {
+    		if(message.get(i).contains("... --- ...")) {
     			hasSOS = true;
     		}
     	}
@@ -61,7 +58,7 @@ public class Algorithms {
     	
     	
     	Boolean bool = false;
-    	double[] array = null;
+    	double[] array = new double[results.size()];
     	for(int i = 0; i < results.size(); i++) {
     		array[i] = results.get(i);
     	}
@@ -88,7 +85,7 @@ public class Algorithms {
     	
     	List<Double> newresults = new ArrayList<Double>();
     	for(int i = 0; i < array.length; i++) {
-    		newresults.set(i, array[i]);
+    		newresults.add(array[i]);
     	}
     	return newresults;
     	
@@ -98,7 +95,7 @@ public class Algorithms {
     
     public static List<String> sortDNA(List<String> unsorted){
     	Boolean bool = false;
-    	String[] array = null;
+    	String[] array = new String[unsorted.size()];
     	for(int i = 0; i < unsorted.size(); i++) {
     		array[i] = unsorted.get(i);
     	}
@@ -125,7 +122,7 @@ public class Algorithms {
     	
     	List<String> sorted = new ArrayList<String>();
     	for(int i = 0; i < array.length; i++) {
-    		sorted.set(i, array[i]);
+    		sorted.add(array[i]);
     	}
     	return sorted;
     	
@@ -137,7 +134,7 @@ public class Algorithms {
     
     public static List<String> sortWords(List<String> words){
     	Boolean bool = false;
-    	String[] array = null;
+    	String[] array = new String[words.size()];
     	for(int i = 0; i < words.size(); i++) {
     		array[i] = words.get(i);
     	}
@@ -164,7 +161,7 @@ public class Algorithms {
     	
     	List<String> sorted = new ArrayList<String>();
     	for(int i = 0; i < array.length; i++) {
-    		sorted.set(i, array[i]);
+    		sorted.add(array[i]);
     	}
     	return sorted;
     }
